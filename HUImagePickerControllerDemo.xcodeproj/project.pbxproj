@@ -1,0 +1,362 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		CE8CABD31701D439001A1EE9 /* Overlay@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CE8CABD21701D439001A1EE9 /* Overlay@2x.png */; };
+		CED0ABF21701406C00A08800 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CED0ABF11701406C00A08800 /* UIKit.framework */; };
+		CED0ABF41701406C00A08800 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CED0ABF31701406C00A08800 /* Foundation.framework */; };
+		CED0ABF61701406C00A08800 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CED0ABF51701406C00A08800 /* CoreGraphics.framework */; };
+		CED0ABFC1701406C00A08800 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CED0ABFA1701406C00A08800 /* InfoPlist.strings */; };
+		CED0ABFE1701406C00A08800 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CED0ABFD1701406C00A08800 /* main.m */; };
+		CED0AC021701406C00A08800 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CED0AC011701406C00A08800 /* AppDelegate.m */; };
+		CED0AC041701406C00A08800 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = CED0AC031701406C00A08800 /* Default.png */; };
+		CED0AC061701406C00A08800 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CED0AC051701406C00A08800 /* Default@2x.png */; };
+		CED0AC081701406C00A08800 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CED0AC071701406C00A08800 /* Default-568h@2x.png */; };
+		CED0AC0B1701406C00A08800 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CED0AC0A1701406C00A08800 /* ViewController.m */; };
+		CED0AC0E1701406C00A08800 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CED0AC0C1701406C00A08800 /* ViewController.xib */; };
+		CED0AC351701456700A08800 /* HUImagePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = CED0AC331701456700A08800 /* HUImagePicker.m */; };
+		CED0AC361701456700A08800 /* HUImagePicker.xib in Resources */ = {isa = PBXBuildFile; fileRef = CED0AC341701456700A08800 /* HUImagePicker.xib */; };
+		CED0AC38170148E900A08800 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CED0AC37170148E900A08800 /* AssetsLibrary.framework */; };
+		CED0AC3A17015D2200A08800 /* a.png in Resources */ = {isa = PBXBuildFile; fileRef = CED0AC3917015D2200A08800 /* a.png */; };
+		CED0AC3E1701752B00A08800 /* HUImagePickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = CED0AC3C1701752B00A08800 /* HUImagePickerController.m */; };
+		CED0AC4217018D9500A08800 /* HUPhotoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CED0AC4117018D9500A08800 /* HUPhotoCell.m */; };
+		CED0AC451701955600A08800 /* HUPhotoThumb.m in Sources */ = {isa = PBXBuildFile; fileRef = CED0AC441701955600A08800 /* HUPhotoThumb.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		CE8CABD21701D439001A1EE9 /* Overlay@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Overlay@2x.png"; sourceTree = "<group>"; };
+		CED0ABEE1701406C00A08800 /* HUImagePickerControllerDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HUImagePickerControllerDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CED0ABF11701406C00A08800 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		CED0ABF31701406C00A08800 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		CED0ABF51701406C00A08800 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		CED0ABF91701406C00A08800 /* HUImagePickerControllerDemo-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "HUImagePickerControllerDemo-Info.plist"; sourceTree = "<group>"; };
+		CED0ABFB1701406C00A08800 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		CED0ABFD1701406C00A08800 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		CED0ABFF1701406C00A08800 /* HUImagePickerControllerDemo-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HUImagePickerControllerDemo-Prefix.pch"; sourceTree = "<group>"; };
+		CED0AC001701406C00A08800 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		CED0AC011701406C00A08800 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		CED0AC031701406C00A08800 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		CED0AC051701406C00A08800 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		CED0AC071701406C00A08800 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		CED0AC091701406C00A08800 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		CED0AC0A1701406C00A08800 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		CED0AC0D1701406C00A08800 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController.xib; sourceTree = "<group>"; };
+		CED0AC321701456700A08800 /* HUImagePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HUImagePicker.h; sourceTree = "<group>"; };
+		CED0AC331701456700A08800 /* HUImagePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HUImagePicker.m; sourceTree = "<group>"; };
+		CED0AC341701456700A08800 /* HUImagePicker.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HUImagePicker.xib; sourceTree = "<group>"; };
+		CED0AC37170148E900A08800 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
+		CED0AC3917015D2200A08800 /* a.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = a.png; path = ../a.png; sourceTree = "<group>"; };
+		CED0AC3B1701752B00A08800 /* HUImagePickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HUImagePickerController.h; sourceTree = "<group>"; };
+		CED0AC3C1701752B00A08800 /* HUImagePickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HUImagePickerController.m; sourceTree = "<group>"; };
+		CED0AC4017018D9500A08800 /* HUPhotoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HUPhotoCell.h; sourceTree = "<group>"; };
+		CED0AC4117018D9500A08800 /* HUPhotoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HUPhotoCell.m; sourceTree = "<group>"; };
+		CED0AC431701955500A08800 /* HUPhotoThumb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HUPhotoThumb.h; sourceTree = "<group>"; };
+		CED0AC441701955600A08800 /* HUPhotoThumb.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HUPhotoThumb.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		CED0ABEB1701406C00A08800 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CED0AC38170148E900A08800 /* AssetsLibrary.framework in Frameworks */,
+				CED0ABF21701406C00A08800 /* UIKit.framework in Frameworks */,
+				CED0ABF41701406C00A08800 /* Foundation.framework in Frameworks */,
+				CED0ABF61701406C00A08800 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		CE8CABD11701D439001A1EE9 /* resources */ = {
+			isa = PBXGroup;
+			children = (
+				CE8CABD21701D439001A1EE9 /* Overlay@2x.png */,
+			);
+			path = resources;
+			sourceTree = "<group>";
+		};
+		CED0ABE51701406C00A08800 = {
+			isa = PBXGroup;
+			children = (
+				CED0AC3917015D2200A08800 /* a.png */,
+				CED0AC2C1701409E00A08800 /* HUImagePickerController */,
+				CED0ABF71701406C00A08800 /* HUImagePickerControllerDemo */,
+				CED0ABF01701406C00A08800 /* Frameworks */,
+				CED0ABEF1701406C00A08800 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		CED0ABEF1701406C00A08800 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CED0ABEE1701406C00A08800 /* HUImagePickerControllerDemo.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CED0ABF01701406C00A08800 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CED0AC37170148E900A08800 /* AssetsLibrary.framework */,
+				CED0ABF11701406C00A08800 /* UIKit.framework */,
+				CED0ABF31701406C00A08800 /* Foundation.framework */,
+				CED0ABF51701406C00A08800 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CED0ABF71701406C00A08800 /* HUImagePickerControllerDemo */ = {
+			isa = PBXGroup;
+			children = (
+				CED0AC001701406C00A08800 /* AppDelegate.h */,
+				CED0AC011701406C00A08800 /* AppDelegate.m */,
+				CED0AC091701406C00A08800 /* ViewController.h */,
+				CED0AC0A1701406C00A08800 /* ViewController.m */,
+				CED0AC0C1701406C00A08800 /* ViewController.xib */,
+				CED0ABF81701406C00A08800 /* Supporting Files */,
+			);
+			path = HUImagePickerControllerDemo;
+			sourceTree = "<group>";
+		};
+		CED0ABF81701406C00A08800 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				CED0ABF91701406C00A08800 /* HUImagePickerControllerDemo-Info.plist */,
+				CED0ABFA1701406C00A08800 /* InfoPlist.strings */,
+				CED0ABFD1701406C00A08800 /* main.m */,
+				CED0ABFF1701406C00A08800 /* HUImagePickerControllerDemo-Prefix.pch */,
+				CED0AC031701406C00A08800 /* Default.png */,
+				CED0AC051701406C00A08800 /* Default@2x.png */,
+				CED0AC071701406C00A08800 /* Default-568h@2x.png */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		CED0AC2C1701409E00A08800 /* HUImagePickerController */ = {
+			isa = PBXGroup;
+			children = (
+				CE8CABD11701D439001A1EE9 /* resources */,
+				CED0AC3B1701752B00A08800 /* HUImagePickerController.h */,
+				CED0AC3C1701752B00A08800 /* HUImagePickerController.m */,
+				CED0AC321701456700A08800 /* HUImagePicker.h */,
+				CED0AC331701456700A08800 /* HUImagePicker.m */,
+				CED0AC341701456700A08800 /* HUImagePicker.xib */,
+				CED0AC4017018D9500A08800 /* HUPhotoCell.h */,
+				CED0AC4117018D9500A08800 /* HUPhotoCell.m */,
+				CED0AC431701955500A08800 /* HUPhotoThumb.h */,
+				CED0AC441701955600A08800 /* HUPhotoThumb.m */,
+			);
+			path = HUImagePickerController;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		CED0ABED1701406C00A08800 /* HUImagePickerControllerDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CED0AC111701406C00A08800 /* Build configuration list for PBXNativeTarget "HUImagePickerControllerDemo" */;
+			buildPhases = (
+				CED0ABEA1701406C00A08800 /* Sources */,
+				CED0ABEB1701406C00A08800 /* Frameworks */,
+				CED0ABEC1701406C00A08800 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = HUImagePickerControllerDemo;
+			productName = HUImagePickerControllerDemo;
+			productReference = CED0ABEE1701406C00A08800 /* HUImagePickerControllerDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		CED0ABE61701406C00A08800 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0460;
+				ORGANIZATIONNAME = jazzsasori;
+			};
+			buildConfigurationList = CED0ABE91701406C00A08800 /* Build configuration list for PBXProject "HUImagePickerControllerDemo" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = CED0ABE51701406C00A08800;
+			productRefGroup = CED0ABEF1701406C00A08800 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				CED0ABED1701406C00A08800 /* HUImagePickerControllerDemo */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		CED0ABEC1701406C00A08800 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CED0ABFC1701406C00A08800 /* InfoPlist.strings in Resources */,
+				CED0AC041701406C00A08800 /* Default.png in Resources */,
+				CED0AC061701406C00A08800 /* Default@2x.png in Resources */,
+				CED0AC081701406C00A08800 /* Default-568h@2x.png in Resources */,
+				CED0AC0E1701406C00A08800 /* ViewController.xib in Resources */,
+				CED0AC361701456700A08800 /* HUImagePicker.xib in Resources */,
+				CED0AC3A17015D2200A08800 /* a.png in Resources */,
+				CE8CABD31701D439001A1EE9 /* Overlay@2x.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		CED0ABEA1701406C00A08800 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CED0ABFE1701406C00A08800 /* main.m in Sources */,
+				CED0AC021701406C00A08800 /* AppDelegate.m in Sources */,
+				CED0AC0B1701406C00A08800 /* ViewController.m in Sources */,
+				CED0AC351701456700A08800 /* HUImagePicker.m in Sources */,
+				CED0AC3E1701752B00A08800 /* HUImagePickerController.m in Sources */,
+				CED0AC4217018D9500A08800 /* HUPhotoCell.m in Sources */,
+				CED0AC451701955600A08800 /* HUPhotoThumb.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		CED0ABFA1701406C00A08800 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CED0ABFB1701406C00A08800 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		CED0AC0C1701406C00A08800 /* ViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CED0AC0D1701406C00A08800 /* en */,
+			);
+			name = ViewController.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		CED0AC0F1701406C00A08800 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		CED0AC101701406C00A08800 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		CED0AC121701406C00A08800 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "HUImagePickerControllerDemo/HUImagePickerControllerDemo-Prefix.pch";
+				INFOPLIST_FILE = "HUImagePickerControllerDemo/HUImagePickerControllerDemo-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		CED0AC131701406C00A08800 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "HUImagePickerControllerDemo/HUImagePickerControllerDemo-Prefix.pch";
+				INFOPLIST_FILE = "HUImagePickerControllerDemo/HUImagePickerControllerDemo-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		CED0ABE91701406C00A08800 /* Build configuration list for PBXProject "HUImagePickerControllerDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CED0AC0F1701406C00A08800 /* Debug */,
+				CED0AC101701406C00A08800 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CED0AC111701406C00A08800 /* Build configuration list for PBXNativeTarget "HUImagePickerControllerDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CED0AC121701406C00A08800 /* Debug */,
+				CED0AC131701406C00A08800 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = CED0ABE61701406C00A08800 /* Project object */;
+}
