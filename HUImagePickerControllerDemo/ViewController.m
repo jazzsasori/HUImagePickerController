@@ -15,7 +15,7 @@
 
 @implementation ViewController
 
-- (void)viewImages:(NSArray *)images
+- (void)viewImages:(NSArray *)assets
 {
     // remove thumbs
     for (UIView *v in self.selectedImageShowView.subviews)
@@ -25,9 +25,10 @@
     // add images
     int     c = 4;
     CGFloat w = self.view.frame.size.width / c;
-    for (int i=0; i<[images count]; i++)
+    for (int i=0; i<[assets count]; i++)
     {
-        UIImageView *v = [[UIImageView alloc] initWithImage:[images objectAtIndex:i]];
+        ALAsset *asset = [assets objectAtIndex:i];
+        UIImageView *v = [[UIImageView alloc] initWithImage:[UIImage imageWithCGImage:[[asset defaultRepresentation] fullResolutionImage]]];
         //[v setContentMode:UIViewContentModeScaleAspectFit];
         [v setFrame:CGRectMake(w * (i % c), floor(i / c) * w, w, w)];
         [self.selectedImageShowView addSubview:v];
@@ -39,25 +40,46 @@
     // HUImagePickerController initialize
     HUImagePickerController *ipc = [[HUImagePickerController alloc] init];
     
+    // set complete button title
+    [ipc setCompleteButtonTitle:@"ok"];
+    
+    // set title and create Cancel Button
+    [ipc setCancelButtonTitle:@"cancel"];
+    
+    // set select max count
+    [ipc setMaxSelectCount:5];
+    
     // complete callback
-    [ipc setCompleteCallback:^(HUImagePickerController *navController, NSArray *images) {
+    [ipc setCompleteCallback:^(HUImagePickerController *navController, NSArray *assets) {
         // set images to background
-        [self viewImages:images];
+        [self viewImages:assets];
         // dismiss HUImagePickerController
         [navController dismissViewControllerAnimated:YES completion:^{ }];
     }];
     
     // thumb tap callback
-    [ipc setThumbTapCallback:^(HUImagePickerController *navController, HUPhotoThumb *thumb, UIImage *selectedImage) {
+    [ipc setThumbTapCallback:^(HUImagePickerController *navController, HUPhotoThumb *thumb, ALAsset *selectedAssets) {
         // select
         if ([thumb isSelected])
         {
+            // set selected view
             [thumb deselectThumb];
         }
         else
         {
+            // set deselected view
             [thumb selectThumb];
         }
+    }];
+    
+    // max select error callback
+    [ipc setCntErrorCallback:^() {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@""
+                                                        message:@"max count error"
+                                                       delegate:self
+                                              cancelButtonTitle:@"cancel"
+                                              otherButtonTitles:nil];
+        [alert show];
     }];
     
     // view HUImagePickerController

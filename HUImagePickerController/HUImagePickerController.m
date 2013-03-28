@@ -17,17 +17,28 @@
     HUImagePicker *rootViewController;
 }
 
+
+#pragma mark - initialize
+
 - (id)init
 {
     // create HUImagePicker
     rootViewController = [[HUImagePicker alloc] initWithNibName:@"HUImagePicker" bundle:nil];
     // init
     self = [super initWithRootViewController:rootViewController];
-    if (self)
-    {
-    }
+    if (self) { }
     
     return self;
+}
+
+
+#pragma mark - memory management
+
+- (void)dealloc
+{
+    [self setCompleteCallback:nil];
+    [self setThumbTapCallback:nil];
+    [self setCntErrorCallback:nil];
 }
 
 @end
