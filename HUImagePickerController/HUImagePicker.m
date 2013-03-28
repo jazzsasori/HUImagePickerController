@@ -16,42 +16,7 @@
 @implementation HUImagePicker
 
 
-#pragma mark - asset process
-
-- (UIImage *)imageFromAsset:(ALAsset *)asset
-{
-    if (asset == nil) return nil;
-    ALAssetRepresentation *representation = [asset defaultRepresentation];
-    return [UIImage imageWithCGImage:[representation fullResolutionImage]];
-}
-
-
 #pragma mark - initialize methods
-
-- (void)complete
-{
-    // get selected images
-    NSMutableArray *images = [NSMutableArray array];
-    for (NSNumber *index in self.selectedIndexes)
-    {
-        UIImage *img = [self imageFromAsset:[self.photos objectAtIndex:[index intValue]]];
-        if (img == nil) continue;
-        [images addObject:img];
-    }
-    
-    // callback
-    HUImagePickerController *ipc = (HUImagePickerController *)self.navigationController;
-    ipc.completeCallback(ipc, images);
-}
-
-- (void)addCompleteButton
-{
-    UIBarButtonItem *button = [[UIBarButtonItem alloc] initWithTitle:@"complete"
-                                                               style:UIBarButtonItemStyleBordered
-                                                              target:self
-                                                              action:@selector(complete)];
-    [self.navigationItem setRightBarButtonItem:button];
-}
 
 - (void)viewDidLoad
 {
@@ -63,12 +28,18 @@
     // View List
     if ([self listMode] == HUIPC_LIST_ALBUM)
     {
+        // create cancel button if title was set
+        [self addCancelButton];
+        // view Album
         [self viewAlbumList];
     }
     else
     {
+        // add complete button
         [self addCompleteButton];
+        // set cell separator style none
         [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
+        // view photo list
         [self viewPhotoList:self.albumGroup];
     }
 }
@@ -79,7 +50,7 @@
 }
 
 
-#pragma mark - Album list, Image list process
+#pragma mark - asset process
 
 - (ALAssetsLibrary *)sharedAssetsLibrary
 {
@@ -90,6 +61,60 @@
     
     return self.assetsLibrary;
 }
+
+
+#pragma mark - bar button create and actions
+
+- (HUImagePickerController *)sharedParentInstance
+{
+    return (HUImagePickerController *)self.navigationController;
+}
+
+- (void)complete
+{
+    // get selected images
+    NSMutableArray *assets = [NSMutableArray array];
+    for (NSNumber *index in self.selectedIndexes)
+    {
+        [assets addObject:[self.photos objectAtIndex:[index intValue]]];
+    }
+    
+    // callback
+    [self sharedParentInstance].completeCallback([self sharedParentInstance], assets);
+}
+
+- (void)addCompleteButton
+{
+    // get complete button title
+    NSString *completeButtonTitle = [self sharedParentInstance].completeButtonTitle;
+    // create complete button
+    UIBarButtonItem *button = [[UIBarButtonItem alloc] initWithTitle:([completeButtonTitle isEqualToString:@""]) ? @"complete" : completeButtonTitle
+                                                               style:UIBarButtonItemStyleBordered
+                                                              target:self
+                                                              action:@selector(complete)];
+    [self.navigationItem setRightBarButtonItem:button];
+}
+
+- (void)cancel
+{
+    [self dismissViewControllerAnimated:YES completion:^{}];
+}
+
+- (void)addCancelButton
+{
+    NSString *cancelButtonTitle  = [self sharedParentInstance].cancelButtonTitle;
+    // if set cancelbutton title nil, don't create cancel button
+    if ([cancelButtonTitle isEqualToString:@""]) return ;
+    // create cancel button
+    UIBarButtonItem *button = [[UIBarButtonItem alloc] initWithTitle:cancelButtonTitle
+                                                               style:UIBarButtonItemStyleBordered
+                                                              target:self
+                                                              action:@selector(cancel)];
+    [self.navigationItem setLeftBarButtonItem:button];
+}
+
+
+#pragma mark - Album list, Image list process
 
 - (HUIPC_LIST)listMode
 {
@@ -224,12 +249,23 @@
 
 - (void)photoTapped:(NSDictionary *)photoInfo withThumb:(HUPhotoThumb *)thumb
 {
+    // check max count
+    int max = [self sharedParentInstance].maxSelectCount;
+    if (max > 0 && [self.selectedIndexes count] >= max && ![self.selectedIndexes containsObject:[photoInfo objectForKey:@"index"]])
+    {
+        if ([self sharedParentInstance].cntErrorCallback != nil)
+        {
+            [self sharedParentInstance].cntErrorCallback();
+        }
+        return ;
+    }
     // selected image
     ALAsset *asset = [self.photos objectAtIndex:[[photoInfo objectForKey:@"index"] intValue]];
-    UIImage *image = [self imageFromAsset:asset];
     // callback
-    HUImagePickerController *ipc = (HUImagePickerController *)self.navigationController;
-    ipc.thumbTapCallback((HUImagePickerController *)self.navigationController, thumb, image);
+    if ([self sharedParentInstance].thumbTapCallback != nil)
+    {
+        [self sharedParentInstance].thumbTapCallback([self sharedParentInstance], thumb, asset);
+    }
 }
 
 - (void)selectThumb:(NSDictionary *)photoInfo
@@ -251,8 +287,6 @@
     [self           setPhotos:nil];
     [self    setAssetsLibrary:nil];
     [self       setAlbumGroup:nil];
-    [self setCompleteCallback:nil];
-    [self setThumbTapCallback:nil];
 }
 
 @end
