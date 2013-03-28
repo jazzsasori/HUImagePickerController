@@ -16,6 +16,16 @@
 @implementation HUImagePicker
 
 
+#pragma mark - asset process
+
+- (UIImage *)imageFromAsset:(ALAsset *)asset
+{
+    if (asset == nil) return nil;
+    ALAssetRepresentation *representation = [asset defaultRepresentation];
+    return [UIImage imageWithCGImage:[representation fullResolutionImage]];
+}
+
+
 #pragma mark - initialize methods
 
 - (void)complete
@@ -24,10 +34,9 @@
     NSMutableArray *images = [NSMutableArray array];
     for (NSNumber *index in self.selectedIndexes)
     {
-        ALAsset *asset = [self.photos objectAtIndex:[index intValue]];
-        ALAssetRepresentation *representation = [asset defaultRepresentation];
-        UIImage *img = [UIImage imageWithCGImage:[representation fullResolutionImage]];
-        if (img != nil) [images addObject:img];
+        UIImage *img = [self imageFromAsset:[self.photos objectAtIndex:[index intValue]]];
+        if (img == nil) continue;
+        [images addObject:img];
     }
     
     // callback
@@ -215,9 +224,12 @@
 
 - (void)photoTapped:(NSDictionary *)photoInfo withThumb:(HUPhotoThumb *)thumb
 {
+    // selected image
+    ALAsset *asset = [self.photos objectAtIndex:[[photoInfo objectForKey:@"index"] intValue]];
+    UIImage *image = [self imageFromAsset:asset];
     // callback
     HUImagePickerController *ipc = (HUImagePickerController *)self.navigationController;
-    ipc.thumbTapCallback((HUImagePickerController *)self.navigationController, thumb);
+    ipc.thumbTapCallback((HUImagePickerController *)self.navigationController, thumb, image);
 }
 
 - (void)selectThumb:(NSDictionary *)photoInfo
