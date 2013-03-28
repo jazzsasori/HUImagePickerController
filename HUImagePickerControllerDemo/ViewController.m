@@ -39,6 +39,12 @@
     // HUImagePickerController initialize
     HUImagePickerController *ipc = [[HUImagePickerController alloc] init];
     
+    // set complete button title
+    [ipc setCompleteButtonTitle:@"ok"];
+    
+    // set title and create Cancel Button
+    [ipc setCancelButtonTitle:@"cancel"];
+    
     // complete callback
     [ipc setCompleteCallback:^(HUImagePickerController *navController, NSArray *images) {
         // set images to background
@@ -52,10 +58,12 @@
         // select
         if ([thumb isSelected])
         {
+            // set selected view
             [thumb deselectThumb];
         }
         else
         {
+            // set deselected view
             [thumb selectThumb];
         }
     }];

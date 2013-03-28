@@ -16,17 +16,66 @@
 @implementation HUImagePicker
 
 
+#pragma mark - initialize methods
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    
+    // initialize
+    [self setSelectedIndexes:[NSMutableArray array]];
+    
+    // View List
+    if ([self listMode] == HUIPC_LIST_ALBUM)
+    {
+        // create cancel button if title was set
+        [self addCancelButton];
+        // view Album
+        [self viewAlbumList];
+    }
+    else
+    {
+        // add complete button
+        [self addCompleteButton];
+        // set cell separator style none
+        [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
+        // view photo list
+        [self viewPhotoList:self.albumGroup];
+    }
+}
+
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+}
+
+
 #pragma mark - asset process
+
+- (ALAssetsLibrary *)sharedAssetsLibrary
+{
+    if (self.assetsLibrary == nil)
+    {
+        [self setAssetsLibrary:[[ALAssetsLibrary alloc] init]];
+    }
+    
+    return self.assetsLibrary;
+}
 
 - (UIImage *)imageFromAsset:(ALAsset *)asset
 {
-    if (asset == nil) return nil;
+   if (asset == nil) return nil;
     ALAssetRepresentation *representation = [asset defaultRepresentation];
     return [UIImage imageWithCGImage:[representation fullResolutionImage]];
 }
 
 
-#pragma mark - initialize methods
+#pragma mark - bar button create and actions
+
+- (HUImagePickerController *)sharedParentInstance
+{
+    return (HUImagePickerController *)self.navigationController;
+}
 
 - (void)complete
 {
@@ -40,56 +89,41 @@
     }
     
     // callback
-    HUImagePickerController *ipc = (HUImagePickerController *)self.navigationController;
-    ipc.completeCallback(ipc, images);
+    [self sharedParentInstance].completeCallback([self sharedParentInstance], images);
 }
 
 - (void)addCompleteButton
 {
-    UIBarButtonItem *button = [[UIBarButtonItem alloc] initWithTitle:@"complete"
+    // get complete button title
+    NSString *completeButtonTitle = [self sharedParentInstance].completeButtonTitle;
+    // create complete button
+    UIBarButtonItem *button = [[UIBarButtonItem alloc] initWithTitle:([completeButtonTitle isEqualToString:@""]) ? @"complete" : completeButtonTitle
                                                                style:UIBarButtonItemStyleBordered
                                                               target:self
                                                               action:@selector(complete)];
     [self.navigationItem setRightBarButtonItem:button];
 }
 
-- (void)viewDidLoad
+- (void)cancel
 {
-    [super viewDidLoad];
-    
-    // initialize
-    [self setSelectedIndexes:[NSMutableArray array]];
-    
-    // View List
-    if ([self listMode] == HUIPC_LIST_ALBUM)
-    {
-        [self viewAlbumList];
-    }
-    else
-    {
-        [self addCompleteButton];
-        [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
-        [self viewPhotoList:self.albumGroup];
-    }
+    [self dismissViewControllerAnimated:YES completion:^{}];
 }
 
-- (void)didReceiveMemoryWarning
+- (void)addCancelButton
 {
-    [super didReceiveMemoryWarning];
+    NSString *cancelButtonTitle  = [self sharedParentInstance].cancelButtonTitle;
+    // if set cancelbutton title nil, don't create cancel button
+    if ([cancelButtonTitle isEqualToString:@""]) return ;
+    // create cancel button
+    UIBarButtonItem *button = [[UIBarButtonItem alloc] initWithTitle:cancelButtonTitle
+                                                               style:UIBarButtonItemStyleBordered
+                                                              target:self
+                                                              action:@selector(cancel)];
+    [self.navigationItem setLeftBarButtonItem:button];
 }
 
 
 #pragma mark - Album list, Image list process
-
-- (ALAssetsLibrary *)sharedAssetsLibrary
-{
-    if (self.assetsLibrary == nil)
-    {
-        [self setAssetsLibrary:[[ALAssetsLibrary alloc] init]];
-    }
-    
-    return self.assetsLibrary;
-}
 
 - (HUIPC_LIST)listMode
 {
@@ -228,8 +262,7 @@
     ALAsset *asset = [self.photos objectAtIndex:[[photoInfo objectForKey:@"index"] intValue]];
     UIImage *image = [self imageFromAsset:asset];
     // callback
-    HUImagePickerController *ipc = (HUImagePickerController *)self.navigationController;
-    ipc.thumbTapCallback((HUImagePickerController *)self.navigationController, thumb, image);
+    [self sharedParentInstance].thumbTapCallback([self sharedParentInstance], thumb, image);
 }
 
 - (void)selectThumb:(NSDictionary *)photoInfo
