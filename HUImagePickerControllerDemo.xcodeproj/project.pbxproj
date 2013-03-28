@@ -22,7 +22,6 @@
 		CED0AC351701456700A08800 /* HUImagePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = CED0AC331701456700A08800 /* HUImagePicker.m */; };
 		CED0AC361701456700A08800 /* HUImagePicker.xib in Resources */ = {isa = PBXBuildFile; fileRef = CED0AC341701456700A08800 /* HUImagePicker.xib */; };
 		CED0AC38170148E900A08800 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CED0AC37170148E900A08800 /* AssetsLibrary.framework */; };
-		CED0AC3A17015D2200A08800 /* a.png in Resources */ = {isa = PBXBuildFile; fileRef = CED0AC3917015D2200A08800 /* a.png */; };
 		CED0AC3E1701752B00A08800 /* HUImagePickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = CED0AC3C1701752B00A08800 /* HUImagePickerController.m */; };
 		CED0AC4217018D9500A08800 /* HUPhotoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CED0AC4117018D9500A08800 /* HUPhotoCell.m */; };
 		CED0AC451701955600A08800 /* HUPhotoThumb.m in Sources */ = {isa = PBXBuildFile; fileRef = CED0AC441701955600A08800 /* HUPhotoThumb.m */; };
@@ -50,7 +49,6 @@
 		CED0AC331701456700A08800 /* HUImagePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HUImagePicker.m; sourceTree = "<group>"; };
 		CED0AC341701456700A08800 /* HUImagePicker.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HUImagePicker.xib; sourceTree = "<group>"; };
 		CED0AC37170148E900A08800 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
-		CED0AC3917015D2200A08800 /* a.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = a.png; path = ../a.png; sourceTree = "<group>"; };
 		CED0AC3B1701752B00A08800 /* HUImagePickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HUImagePickerController.h; sourceTree = "<group>"; };
 		CED0AC3C1701752B00A08800 /* HUImagePickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HUImagePickerController.m; sourceTree = "<group>"; };
 		CED0AC4017018D9500A08800 /* HUPhotoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HUPhotoCell.h; sourceTree = "<group>"; };
@@ -85,7 +83,6 @@
 		CED0ABE51701406C00A08800 = {
 			isa = PBXGroup;
 			children = (
-				CED0AC3917015D2200A08800 /* a.png */,
 				CED0AC2C1701409E00A08800 /* HUImagePickerController */,
 				CED0ABF71701406C00A08800 /* HUImagePickerControllerDemo */,
 				CED0ABF01701406C00A08800 /* Frameworks */,
@@ -213,7 +210,6 @@
 				CED0AC081701406C00A08800 /* Default-568h@2x.png in Resources */,
 				CED0AC0E1701406C00A08800 /* ViewController.xib in Resources */,
 				CED0AC361701456700A08800 /* HUImagePicker.xib in Resources */,
-				CED0AC3A17015D2200A08800 /* a.png in Resources */,
 				CE8CABD31701D439001A1EE9 /* Overlay@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
