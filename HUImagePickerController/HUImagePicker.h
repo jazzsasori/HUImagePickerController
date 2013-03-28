@@ -19,8 +19,8 @@ typedef NS_ENUM(NSInteger, HUIPC_LIST)
     HUIPC_LIST_ALBUM,
     HUIPC_LIST_PHOTOS
 };
-typedef void (^HUIPC_CompleteCallback)(HUImagePickerController *navController, NSArray *images);
-typedef void (^HUIPC_ThumbTapCallback)(HUImagePickerController *navController, HUPhotoThumb *thumb, UIImage *selectedImage);
+typedef void (^HUIPC_CompleteCallback)(HUImagePickerController *navController, NSArray *assets);
+typedef void (^HUIPC_ThumbTapCallback)(HUImagePickerController *navController, HUPhotoThumb *thumb, ALAsset *selectedAsset);
 
 
 /// interface

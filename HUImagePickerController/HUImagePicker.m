@@ -62,13 +62,6 @@
     return self.assetsLibrary;
 }
 
-- (UIImage *)imageFromAsset:(ALAsset *)asset
-{
-   if (asset == nil) return nil;
-    ALAssetRepresentation *representation = [asset defaultRepresentation];
-    return [UIImage imageWithCGImage:[representation fullResolutionImage]];
-}
-
 
 #pragma mark - bar button create and actions
 
@@ -80,16 +73,14 @@
 - (void)complete
 {
     // get selected images
-    NSMutableArray *images = [NSMutableArray array];
+    NSMutableArray *assets = [NSMutableArray array];
     for (NSNumber *index in self.selectedIndexes)
     {
-        UIImage *img = [self imageFromAsset:[self.photos objectAtIndex:[index intValue]]];
-        if (img == nil) continue;
-        [images addObject:img];
+        [assets addObject:[self.photos objectAtIndex:[index intValue]]];
     }
     
     // callback
-    [self sharedParentInstance].completeCallback([self sharedParentInstance], images);
+    [self sharedParentInstance].completeCallback([self sharedParentInstance], assets);
 }
 
 - (void)addCompleteButton
@@ -260,9 +251,8 @@
 {
     // selected image
     ALAsset *asset = [self.photos objectAtIndex:[[photoInfo objectForKey:@"index"] intValue]];
-    UIImage *image = [self imageFromAsset:asset];
     // callback
-    [self sharedParentInstance].thumbTapCallback([self sharedParentInstance], thumb, image);
+    [self sharedParentInstance].thumbTapCallback([self sharedParentInstance], thumb, asset);
 }
 
 - (void)selectThumb:(NSDictionary *)photoInfo
