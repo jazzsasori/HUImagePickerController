@@ -48,7 +48,7 @@
     }];
     
     // thumb tap callback
-    [ipc setThumbTapCallback:^(HUImagePickerController *navController, HUPhotoThumb *thumb) {
+    [ipc setThumbTapCallback:^(HUImagePickerController *navController, HUPhotoThumb *thumb, UIImage *selectedImage) {
         // select
         if ([thumb isSelected])
         {
