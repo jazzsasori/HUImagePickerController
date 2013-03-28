@@ -249,10 +249,23 @@
 
 - (void)photoTapped:(NSDictionary *)photoInfo withThumb:(HUPhotoThumb *)thumb
 {
+    // check max count
+    int max = [self sharedParentInstance].maxSelectCount;
+    if (max > 0 && [self.selectedIndexes count] >= max && ![self.selectedIndexes containsObject:[photoInfo objectForKey:@"index"]])
+    {
+        if ([self sharedParentInstance].cntErrorCallback != nil)
+        {
+            [self sharedParentInstance].cntErrorCallback();
+        }
+        return ;
+    }
     // selected image
     ALAsset *asset = [self.photos objectAtIndex:[[photoInfo objectForKey:@"index"] intValue]];
     // callback
-    [self sharedParentInstance].thumbTapCallback([self sharedParentInstance], thumb, asset);
+    if ([self sharedParentInstance].thumbTapCallback != nil)
+    {
+        [self sharedParentInstance].thumbTapCallback([self sharedParentInstance], thumb, asset);
+    }
 }
 
 - (void)selectThumb:(NSDictionary *)photoInfo
@@ -274,8 +287,6 @@
     [self           setPhotos:nil];
     [self    setAssetsLibrary:nil];
     [self       setAlbumGroup:nil];
-    [self setCompleteCallback:nil];
-    [self setThumbTapCallback:nil];
 }
 
 @end

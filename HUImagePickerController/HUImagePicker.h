@@ -21,6 +21,7 @@ typedef NS_ENUM(NSInteger, HUIPC_LIST)
 };
 typedef void (^HUIPC_CompleteCallback)(HUImagePickerController *navController, NSArray *assets);
 typedef void (^HUIPC_ThumbTapCallback)(HUImagePickerController *navController, HUPhotoThumb *thumb, ALAsset *selectedAsset);
+typedef void (^HUIPC_CntErrorCallback)();
 
 
 /// interface
@@ -31,8 +32,6 @@ typedef void (^HUIPC_ThumbTapCallback)(HUImagePickerController *navController, H
 @property (nonatomic, strong) NSMutableArray         *selectedIndexes;
 @property (nonatomic, strong) ALAssetsLibrary        *assetsLibrary;
 @property (nonatomic, strong) ALAssetsGroup          *albumGroup;
-@property (nonatomic, weak  ) HUIPC_CompleteCallback  completeCallback;
-@property (nonatomic, assign) HUIPC_ThumbTapCallback  thumbTapCallback;
 @property (nonatomic, assign) int                     maxSelectCount;
 
 @end

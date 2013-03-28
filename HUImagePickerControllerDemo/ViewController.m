@@ -46,6 +46,9 @@
     // set title and create Cancel Button
     [ipc setCancelButtonTitle:@"cancel"];
     
+    // set select max count
+    [ipc setMaxSelectCount:5];
+    
     // complete callback
     [ipc setCompleteCallback:^(HUImagePickerController *navController, NSArray *assets) {
         // set images to background
@@ -67,6 +70,16 @@
             // set deselected view
             [thumb selectThumb];
         }
+    }];
+    
+    // max select error callback
+    [ipc setCntErrorCallback:^() {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@""
+                                                        message:@"max count error"
+                                                       delegate:self
+                                              cancelButtonTitle:@"cancel"
+                                              otherButtonTitles:nil];
+        [alert show];
     }];
     
     // view HUImagePickerController

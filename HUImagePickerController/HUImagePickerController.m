@@ -38,6 +38,7 @@
 {
     [self setCompleteCallback:nil];
     [self setThumbTapCallback:nil];
+    [self setCntErrorCallback:nil];
 }
 
 @end
