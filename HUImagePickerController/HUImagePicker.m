@@ -129,9 +129,17 @@
     [[self sharedAssetsLibrary] enumerateGroupsWithTypes:ALAssetsGroupAll usingBlock:^(ALAssetsGroup *group, BOOL *stop) {
         // アルバムが無い場合はgroupがNULL
         if (!group) return ;
+        
         // 写真のみ取得するフィルター
         [group setAssetsFilter:[ALAssetsFilter allPhotos]];
-        [albums addObject:group];
+        if ([[group valueForProperty:ALAssetsGroupPropertyType] intValue] == ALAssetsGroupSavedPhotos)
+        {
+            [albums insertObject:group atIndex:0];
+        }
+        else
+        {
+            [albums addObject:group];
+        }
         [self setData:albums];
         [self.tableView reloadData];
     } failureBlock:^(NSError *error) {
