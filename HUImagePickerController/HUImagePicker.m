@@ -147,7 +147,7 @@
     [group enumerateAssetsUsingBlock:^(ALAsset *result, NSUInteger index, BOOL *stop) {
         if (!result) return ;
         // add result
-        [photos addObject:result];
+        [photos insertObject:result atIndex:0];
         [self setPhotos:photos];
         [self.tableView reloadData];
     }];
