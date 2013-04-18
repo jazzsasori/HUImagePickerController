@@ -204,7 +204,7 @@
             cell = [[HUPhotoCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
         }
         // get photos
-        NSMutableArray *photos = [NSMutableArray array];
+        NSMutableArray *cellPhotos = [NSMutableArray array];
         int start = indexPath.row * TILED_PHOTO_COUNT;
         int end   = start         + TILED_PHOTO_COUNT;
         for (int i=start; i<end; i++)
@@ -212,11 +212,14 @@
             if (i >= [self.photos count]) continue;
             // index number
             NSNumber *index = [NSNumber numberWithInt:i];
+            // get asset url
+            ALAsset      *asset     = [self.photos objectAtIndex:i];
+            NSDictionary *assetDict = [asset valueForProperty:ALAssetPropertyURLs];
+            NSURL   *url   = [[assetDict allValues] objectAtIndex:0];
             // addPhotos
-            ALAsset *asset = [self.photos objectAtIndex:i];
-            [photos addObject:@{
+            [cellPhotos addObject:@{
              @"thumbnail": [UIImage imageWithCGImage:[asset thumbnail]],
-             @"url"      : (NSURL *)[asset valueForProperty:ALAssetPropertyAssetURL],
+             @"url"      : url,
              @"indexPath": [NSIndexPath indexPathForRow:indexPath.row inSection:i],
              @"index"    : index,
              @"selected" : [NSNumber numberWithBool:([self.selectedIndexes containsObject:index]) ? YES : NO],
@@ -224,7 +227,7 @@
         }
         // show photos
         [cell setDelegate:self];
-        [cell viewPhotos:photos];
+        [cell viewPhotos:cellPhotos];
         
         return cell;
     }
