@@ -18,6 +18,4 @@
 @property (nonatomic, strong) NSString               *completeButtonTitle;
 @property (nonatomic, strong) NSString               *cancelButtonTitle;
 
-- (id)init;
-
 @end

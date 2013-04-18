@@ -25,8 +25,11 @@
     // create HUImagePicker
     rootViewController = [[HUImagePicker alloc] initWithNibName:@"HUImagePicker" bundle:nil];
     // init
-    self = [super initWithRootViewController:rootViewController];
-    if (self) { }
+    self = [super init];
+    if (self)
+    {
+        [self setViewControllers:@[rootViewController]];
+    }
     
     return self;
 }
